@@ -80,42 +80,92 @@
 // #Program-3 [Reverse an Array]
 // Time Complexity: O(n)
 // Space Complexity: O(1)
-/* TWO POINTER METHOD*/
+/* TWO POINTER METHOD
+jab start end se chotta ya equals to ho toh swap krte rho aage peehce then start ko aage badhate jao and end ko aage la te hao*/
 
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-void reverseArray (int arr[], int size) {
-    int start =0;
-    int end = size-1;
+// void reverseArray (int arr[], int size) {
+//     int start =0;
+//     int end = size-1;
 
-    while(start<=end) {
-        swap(arr[start], arr[end]);
-        start++;
-        end--;
-    } 
-    cout << "Reversed Array is: ";
-    for (int i=0; i<size; i++) {
-        cout << arr[i]<<" ";
-    }
-}
+//     while(start<=end) {
+//         swap(arr[start], arr[end]);
+//         start++;
+//         end--;
+//     } 
+//     cout << "Reversed Array is: ";
+//     for (int i=0; i<size; i++) {
+//         cout << arr[i]<<" ";
+//     }
+// }
 
-int main() {
-    int arr[100];
-    int size;
+// int main() {
+//     int arr[100];
+//     int size;
 
-    cout << "enter the size: ";
-    cin >>size;
+//     cout << "enter the size: ";
+//     cin >>size;
 
-    for (int i=0; i<size; i++) {
-        cin >> arr[i];
-    }
+//     for (int i=0; i<size; i++) {
+//         cin >> arr[i];
+//     }
 
-    cout << "Original array is: ";
-    for (int i=0; i<size; i++) {
-        cout <<arr[i]<<" ";
-    }
+//     cout << "Original array is: ";
+//     for (int i=0; i<size; i++) {
+//         cout <<arr[i]<<" ";
+//     }
 
-    reverseArray(arr, size);
-    return 0;
-}
+//     reverseArray(arr, size);
+//     return 0;
+// }
+
+//# Problem-4 [extreme print and array]
+/* 1st element then last element, 2nd element then second last element... continues 
+isme cases banega Even case alag and Odd case alag*/
+
+// #include<iostream>
+// using namespace std;
+
+
+// void printExtreme(int arr[], int size) {
+//     int start=0;
+//     int end = size-1;
+//     /* 2 cases for EVEN start or end ko dono ko print krvainge
+//     for ODD sirf start ko print krvainge because start or end ki hi jagah aa jainge jab START==END hojayega*/
+//     while(start<=end) {
+//         if(start==end) {
+//             cout << arr[start]<< endl;
+//         }
+//         else{
+//             cout << arr[start]<<endl;
+//             cout << arr[end] << endl;
+//         }
+
+//         start++;
+//         end--;
+//         cout << "Extreme array is: ";
+//         for (int i=0; i<size; i++) {
+//         cout <<arr[i]<<" ";
+//         }
+//     }
+
+//     cout << "original array is: ";
+//         for (int i=0; i<size; i++) {
+//         cout <<arr[i]<<" ";
+//         }
+// }
+// int main() {
+//     int arr[100];
+//     int size;
+
+//     cout << "enter the size: ";
+//     cin >> size;
+
+//     for (int i=0; i<size; i++) {
+//         cin >> arr[i];
+//     }
+
+//     printExtreme(arr,size);
+// }
