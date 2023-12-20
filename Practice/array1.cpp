@@ -80,8 +80,42 @@
 // #Program-3 [Reverse an Array]
 // Time Complexity: O(n)
 // Space Complexity: O(1)
+/* TWO POINTER METHOD*/
 
 #include<iostream>
 using namespace std;
 
+void reverseArray (int arr[], int size) {
+    int start =0;
+    int end = size-1;
 
+    while(start<=end) {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    } 
+    cout << "Reversed Array is: ";
+    for (int i=0; i<size; i++) {
+        cout << arr[i]<<" ";
+    }
+}
+
+int main() {
+    int arr[100];
+    int size;
+
+    cout << "enter the size: ";
+    cin >>size;
+
+    for (int i=0; i<size; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Original array is: ";
+    for (int i=0; i<size; i++) {
+        cout <<arr[i]<<" ";
+    }
+
+    reverseArray(arr, size);
+    return 0;
+}
