@@ -163,22 +163,110 @@ isme cases banega Even case alag and Odd case alag*/
 // }
 
 // #Find unique element 
+// #include<iostream>
+// using namespace std;
+
+// void printUniqueElement(int arr[], int n) {
+//     for(int i=0; i<n; i++) {
+//         for (int j=0; j<n; j++) {
+//             for (int k=0; k<n; k++) {
+//             cout << arr[i]<<", "<<arr[j]<<", "<<arr[k]<<endl;
+//             }
+//         }
+//     }
+// }
+// int main() {
+//     int arr[] = {10,20,30};
+//     int n=3;
+
+//     printUniqueElement(arr,n);
+//     return 0;
+// }
+
+// #Print 0's & 1's 
+// #include<iostream>
+// using namespace std;
+// void printZeroOne(int arr[], int size) {
+//     int Countzero=0;
+//     int Countone=0;
+
+//     for (int i=0; i<size; i++) {
+//         if(arr[i]==0) {
+//             Countzero++;
+//         }
+//         else {
+//             Countone++;
+//         }
+//     }
+//     for (int i=0; i<Countone; i++) {
+//         arr[i]=0;
+//     }
+//     for (int i=Countone; i<size; i++) {
+//         arr[i]=1;
+//     }
+//     cout << Countone;
+//     cout << Countzero;
+
+// }
+// int main() {
+//     int arr[100];
+//     int size;
+
+//     cout <<"Enter size of an array: ";
+//     cin >> size;
+
+//     for (int i=0; i<size; i++) {
+//         cin >> arr[i];
+//     }
+
+//     printZeroOne(arr, size);
+//     return 0;
+// }
+
+// #Program - Print 0 & 1 using two pointer approach
 #include<iostream>
 using namespace std;
 
-void printUniqueElement(int arr[], int n) {
-    for(int i=0; i<n; i++) {
-        for (int j=0; j<n; j++) {
-            for (int k=0; k<n; k++) {
-            cout << arr[i]<<", "<<arr[j]<<", "<<arr[k]<<endl;
-            }
+void printZeroOne(int arr[], int size) {
+    //using two pointer approach
+    int start=0;
+    int end = size-1;
+
+    while(start<end) {
+        while(start<end && arr[start]==0) {
+            start++;
+        }
+
+        while(start<end && arr[end]==1) {
+            end--;
+        }
+
+        if(start<end && arr[start]==1 && arr[end]==0) {
+            swap(arr[start], arr[end]);
+            start++;
+            end--;
         }
     }
 }
-int main() {
-    int arr[] = {10,20,30};
-    int n=3;
 
-    printUniqueElement(arr,n);
+void printArray(int arr[], int size) {
+    for (int i=0; i<size; i++) {
+        cout << arr[i]<<" ";
+    }
+}
+int main() {
+    int arr[100];
+    int size=6;
+
+    // cout << "Enter the size: ";
+    // cin >> size;
+
+    // for (int i=0; i<size; i++) {
+    //     cin >> arr[i];
+    // }
+
+    printZeroOne(arr,size);
+    printArray(arr,size);
+
     return 0;
 }
