@@ -125,39 +125,60 @@ jab start end se chotta ya equals to ho toh swap krte rho aage peehce then start
 /* 1st element then last element, 2nd element then second last element... continues 
 isme cases banega Even case alag and Odd case alag*/
 
+// #include<iostream>
+// using namespace std;
+
+
+// void printExtreme(int arr[], int size) {
+//     int start=0;
+//     int end = size-1;
+//     /* 2 cases for EVEN start or end ko dono ko print krvainge
+//     for ODD sirf start ko print krvainge because start or end ki hi jagah aa jainge jab START==END hojayega*/
+//     while(start<=end) {
+//         if(start==end) {
+//             cout << arr[start]<< " ";
+//         }
+//         else{
+//             cout << arr[start]<<" ";
+//             cout << arr[end] << " ";
+//         }
+
+//         start++;
+//         end--;
+//     }
+// }
+// int main() {
+//     int arr[100];
+//     int size;
+
+//     cout << "enter the size: ";
+//     cin >> size;
+
+//     for (int i=0; i<size; i++) {
+//         cin >> arr[i];
+//     }
+
+//     printExtreme(arr,size);
+//     return 0;
+// }
+
+// #Find unique element 
 #include<iostream>
 using namespace std;
 
-
-void printExtreme(int arr[], int size) {
-    int start=0;
-    int end = size-1;
-    /* 2 cases for EVEN start or end ko dono ko print krvainge
-    for ODD sirf start ko print krvainge because start or end ki hi jagah aa jainge jab START==END hojayega*/
-    while(start<=end) {
-        if(start==end) {
-            cout << arr[start]<< " ";
+void printUniqueElement(int arr[], int n) {
+    for(int i=0; i<n; i++) {
+        for (int j=0; j<n; j++) {
+            for (int k=0; k<n; k++) {
+            cout << arr[i]<<", "<<arr[j]<<", "<<arr[k]<<endl;
+            }
         }
-        else{
-            cout << arr[start]<<" ";
-            cout << arr[end] << " ";
-        }
-
-        start++;
-        end--;
     }
 }
 int main() {
-    int arr[100];
-    int size;
+    int arr[] = {10,20,30};
+    int n=3;
 
-    cout << "enter the size: ";
-    cin >> size;
-
-    for (int i=0; i<size; i++) {
-        cin >> arr[i];
-    }
-
-    printExtreme(arr,size);
+    printUniqueElement(arr,n);
     return 0;
 }
