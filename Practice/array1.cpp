@@ -125,47 +125,39 @@ jab start end se chotta ya equals to ho toh swap krte rho aage peehce then start
 /* 1st element then last element, 2nd element then second last element... continues 
 isme cases banega Even case alag and Odd case alag*/
 
-// #include<iostream>
-// using namespace std;
+#include<iostream>
+using namespace std;
 
 
-// void printExtreme(int arr[], int size) {
-//     int start=0;
-//     int end = size-1;
-//     /* 2 cases for EVEN start or end ko dono ko print krvainge
-//     for ODD sirf start ko print krvainge because start or end ki hi jagah aa jainge jab START==END hojayega*/
-//     while(start<=end) {
-//         if(start==end) {
-//             cout << arr[start]<< endl;
-//         }
-//         else{
-//             cout << arr[start]<<endl;
-//             cout << arr[end] << endl;
-//         }
+void printExtreme(int arr[], int size) {
+    int start=0;
+    int end = size-1;
+    /* 2 cases for EVEN start or end ko dono ko print krvainge
+    for ODD sirf start ko print krvainge because start or end ki hi jagah aa jainge jab START==END hojayega*/
+    while(start<=end) {
+        if(start==end) {
+            cout << arr[start]<< " ";
+        }
+        else{
+            cout << arr[start]<<" ";
+            cout << arr[end] << " ";
+        }
 
-//         start++;
-//         end--;
-//         cout << "Extreme array is: ";
-//         for (int i=0; i<size; i++) {
-//         cout <<arr[i]<<" ";
-//         }
-//     }
+        start++;
+        end--;
+    }
+}
+int main() {
+    int arr[100];
+    int size;
 
-//     cout << "original array is: ";
-//         for (int i=0; i<size; i++) {
-//         cout <<arr[i]<<" ";
-//         }
-// }
-// int main() {
-//     int arr[100];
-//     int size;
+    cout << "enter the size: ";
+    cin >> size;
 
-//     cout << "enter the size: ";
-//     cin >> size;
+    for (int i=0; i<size; i++) {
+        cin >> arr[i];
+    }
 
-//     for (int i=0; i<size; i++) {
-//         cin >> arr[i];
-//     }
-
-//     printExtreme(arr,size);
-// }
+    printExtreme(arr,size);
+    return 0;
+}
