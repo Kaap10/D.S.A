@@ -9,32 +9,32 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-// class Solution {
-// public:
-//     //OPTIMAL SOLUTIONS HAI (No overhead recursive calls, diameter baar baar nhi nikalna pd rha hai)
-//     int heigth(TreeNode* root, int &diameter) {
-//         if (root==NULL) {
-//             return 0;
-//         }
+class Solution {
+public:
+    //OPTIMAL SOLUTIONS HAI (No overhead recursive calls, diameter baar baar nhi nikalna pd rha hai)
+    int heigth(TreeNode* root, int &diameter) {
+        if (root==NULL) {
+            return 0;
+        }
 
-//         int LH = heigth(root->left, diameter);
-//         int RH = heigth(root->right, diameter);
-//         int maxHeigth= max(LH, RH) +1;
-//         diameter= max(diameter, (LH+RH));
-//         return maxHeigth;
-//     }
-//     int diameterOfBinaryTree(TreeNode* root) {
+        int LH = heigth(root->left, diameter);
+        int RH = heigth(root->right, diameter);
+        int maxHeigth= max(LH, RH) +1;
+        diameter= max(diameter, (LH+RH));
+        return maxHeigth;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
 
-//         //base case
-//         if(root==NULL) {
-//             return 0;
-//         }      
+        //base case
+        if(root==NULL) {
+            return 0;
+        }      
 
-//         int diameter =0;
-//         heigth(root, diameter);
-//         return diameter;
-//     }
-// };
+        int diameter =0;
+        heigth(root, diameter);
+        return diameter;
+    }
+};
 
 // BRUTE FORCE Solutions(Overhead recursive calls hai, baar baar recursive class nikalni pd rha hai)
 class Solution {
