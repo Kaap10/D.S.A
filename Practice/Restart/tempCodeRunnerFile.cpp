@@ -1,1 +1,1 @@
-printArray(arr, n);
+start<end && arr[end]==0

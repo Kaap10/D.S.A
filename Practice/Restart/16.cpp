@@ -235,23 +235,143 @@ using namespace std;
 // }
 
 // Now I have print all pairs of elements that are present in an array
-void PrintAllPairs(int arr[],int size){
+// void PrintAllPairs(int arr[],int size){
 
-    // outer loop
-    for(int i=0;i<size;i++){
-        // inner loop
-        for(int j=0;j<size;j++){
-            cout<<arr[i]<<", "<<arr[j]<<endl;
+//     // outer loop
+//     for(int i=0;i<size;i++){
+//         // inner loop
+//         for(int j=0;j<size;j++){
+//             cout<<arr[i]<<", "<<arr[j]<<endl;
+//         }
+//     }
+// }
+
+// int main(){
+//     int arr[]={10,20,30};
+//     int n=3;
+
+//     // calling method
+//     PrintAllPairs(arr,n);
+
+//     return 0;
+// }
+
+//ab mereko Triplets print krna hai :
+//koi dikkat nhi 3 loop laga lunga
+
+// void printTriplets(int arr[], int n) {
+//     for(int i=0; i<n; i++) {
+//         for (int j=0; j<n; j++) {
+//             for (int k=0; k<n; k++) {
+//                 for (int l=0; l<n; l++) {
+//                     cout << arr[i] << " " << arr[j] << " " << arr[k] << endl;
+
+//                 }
+//                 // cout << arr[i] << " " << arr[j] << " " << arr[k] << endl;
+//             }
+//         }
+//     }
+// }
+// int main() {
+//     int arr[100];
+//     int n;
+
+//     cout << "Enter the Size of an array: ";
+//     cin >> n;
+
+//     cout << "Enter the Elements of an array: ";
+//     for(int i=0; i<n; i++) {
+//         cin >> arr[i];
+//     }
+
+//     printTriplets(arr, n);
+//     return 0;
+// }
+
+// Print 0 and 1 
+// 2 methods are there -> 1. COunt 0 and 1 vala and 2. Two Pointer approach 
+
+
+// int printOneZero(int arr[], int n) {
+//     int OneCount = 0;
+//     int ZeroCount = 0;
+
+//     for(int i=0; i<n; i++) {
+//         if(arr[i]==0) {
+//             ZeroCount++;
+//         }
+
+//         else {
+//             OneCount++;
+//         }
+//     }
+
+//     //print kraviang 0 and 1
+//     for(int i=0; i<ZeroCount; i++) {
+//         arr[i]=0;
+//     }
+
+//     for(int i=ZeroCount; i<n; i++) {
+//         arr[i]=1;
+//     }
+// }
+
+// int printArray(int arr[], int n) {
+//     for(int i=0; i<n; i++) {
+//         cout << arr[i] << " ";
+//     }
+// }
+// int main () {
+//     int n;
+//     cout << "Enter the size of an array: ";
+//     cin >> n;
+//     int arr[100];
+//     cout << "Enter the elements in an array: ";
+//     for (int i=0; i<n; i++) {
+//         cin>> arr[i];
+//     }
+
+//     printOneZero(arr, n);
+//     printArray(arr, n);
+//     return 0;
+    
+// }
+int printOneZero(int arr[], int n) {
+    int start=0;
+    int end = n-1;
+
+    while(start<end) {
+        while(start<end && arr[start]==0) {
+            start++;
+        }
+
+        while(start<end && arr[end]==1) {
+            end --;
+        }
+
+        while((start<end && arr[start]==1 )&& (start<end && arr[end]==0)) {
+            swap(arr[start], arr[end]);
+            start++;
+            end--;
         }
     }
 }
+void printArray(int arr[], int n) {
+    for(int i=0; i<n; i++) {
+        cout << arr[i] << " ";
+    }
+}
+int main() {
+    int n;
+    cout << "Enter the size of an array: ";
+    cin >> n;
+    int arr[100];
+    cout << "Enter the elements in an array: ";
+    for(int i=0; i<n; i++) {
+        cin >> arr[i];
+    }
 
-int main(){
-    int arr[]={10,20,30};
-    int n=3;
-
-    // calling method
-    PrintAllPairs(arr,n);
-
+    printOneZero(arr, n);
+    printArray(arr, n);
     return 0;
 }
