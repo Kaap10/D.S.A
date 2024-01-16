@@ -160,46 +160,98 @@ using namespace std;
 
 
 // -> Now print Extreme elememts in an array means start then end then start+1 then end-1 then start+2 then end-2 like that I want to printf
-int ExtremeArray(int arr[], int n) {
-    int start =0;
-    int end = n-1;
+// int ExtremeArray(int arr[], int n) {
+//     int start =0;
+//     int end = n-1;
 
-    while(start<=end) {
-        if(start==end) {
-            cout << arr[start] << " ";
-        }
+//     while(start<=end) {
+//         if(start==end) {
+//             cout << arr[start] << " ";
+//         }
 
-        else {
-            cout << arr[start] << " ";
-            cout << arr[end] << " ";
-        }
+//         else {
+//             cout << arr[start] << " ";
+//             cout << arr[end] << " ";
+//         }
 
-        start++;
-        end--;
-    }
-}
-
-// int printArray(int arr[], int n) {
-//     for (int i=0; i<n; i++) {
-//         // cout << arr[i] << " ";
+//         start++;
+//         end--;
 //     }
 // }
 
-int main() {
-    int n;
-    int arr[100];
+// // int printArray(int arr[], int n) {
+// //     for (int i=0; i<n; i++) {
+// //         // cout << arr[i] << " ";
+// //     }
+// // }
 
-    cout << "Enter the size of an array: ";
-    cin >> n;
+// int main() {
+//     int n;
+//     int arr[100];
 
-    cout << "Enter the Elements in a Array: ";
-    for (int i=0; i<n; i++) {
-        cin >> arr[i];
+//     cout << "Enter the size of an array: ";
+//     cin >> n;
+
+//     cout << "Enter the Elements in a Array: ";
+//     for (int i=0; i<n; i++) {
+//         cin >> arr[i];
+//     }
+
+//     cout << "Extreme Array is: ";
+//     ExtremeArray(arr, n);
+//     // printArray(arr, n);
+
+//     return 0;
+// }
+
+//mereko ab unique element chaiye arrray mai
+//jo ki XOR se nikal skte hain, same number ka xor = 0 hota hai like A^A=0, A^B=1
+// int printUniqueElement(int arr[], int n) {
+//     int ans = 0;
+//     for(int i=0; i<n; i++) {
+//         // int ans=0;
+//         ans = ans ^ arr[i];
+//         // cout << ans;
+//     }
+//     // cout << ans;
+//     return ans;
+// }
+
+// int main() {
+//     int n;
+//     int arr[100];
+
+//     cout << "Enter the size of an array: ";
+//     cin >> n;
+
+//     cout << "Enter the elements of a array: ";
+//     for (int i=0; i<n; i++) {
+//         cin >> arr[i];
+//     }
+
+//     int finalans = printUniqueElement(arr, n);
+//     cout << finalans;
+//     return 0;
+// }
+
+// Now I have print all pairs of elements that are present in an array
+void PrintAllPairs(int arr[],int size){
+
+    // outer loop
+    for(int i=0;i<size;i++){
+        // inner loop
+        for(int j=0;j<size;j++){
+            cout<<arr[i]<<", "<<arr[j]<<endl;
+        }
     }
+}
 
-    cout << "Extreme Array is: ";
-    ExtremeArray(arr, n);
-    // printArray(arr, n);
+int main(){
+    int arr[]={10,20,30};
+    int n=3;
+
+    // calling method
+    PrintAllPairs(arr,n);
 
     return 0;
 }
