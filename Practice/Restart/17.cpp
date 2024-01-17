@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 //welcome kap10 to day 3 of restart
@@ -326,3 +327,220 @@ using namespace std;
 //     return 0;
 // }
 
+//ab mereko ko diagonal print krna hai principal diagonal bhi or secondary diagonal bhi 
+// int printPrincipalDiagonal(int arr[][3], int row, int col) {
+//     int sum = 0; 
+//     for(int i=0; i<row; i++) {
+//         for (int j=0; j<col; j++) {
+//             if(i==j) {
+//                 sum = sum + arr[i][j];
+//             }
+//         }
+//     }
+//     cout << sum << endl;
+// }
+
+// int printSecondaryDiagonal(int arr[][3], int row, int col) {
+//     int sum = 0; 
+//     for(int i=0; i<row; i++) {
+//         for (int j=0; j<col; j++) {
+//             if(i+j == (col-1)) {
+//                 sum = sum + arr[i][j];
+//             }
+//         }
+//     }
+//     cout << sum << endl;
+// }
+
+// int main() {
+//     int arr[3][3] = {
+//         {1,2,3},
+//         {4,5,6},
+//         {7,8,9}
+//     };
+
+//     int row = 3;
+//     int col = 3;
+//     cout << "Sum of Principal diagonal Elements is: ";
+//     printPrincipalDiagonal(arr, row, col);
+//     cout << "Sum of Secondary diagonal Elements is: ";
+//     printSecondaryDiagonal(arr, row, col);
+
+//     return 0;
+// }
+
+// transpose of a matrix
+// void printTranspose(int arr[][3], int row, int col) {
+//     for(int i=0; i<row; i++) {
+//         for(int j=i; j<col; j++) {
+//             swap(arr[i][j], arr[j][i]);
+//         }
+//     }
+// }
+// int printArray(int arr[][3], int row, int col){
+//     for(int i=0; i<row; i++) {
+//         for (int j=0; j<col; j++) {
+//             cout << arr[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+// }
+// int main() {
+//     int arr[3][3] = {
+//         {1,2,3},
+//         {4,5,6},
+//         {7,8,9}
+//     };
+
+//     int row = 3;
+//     int col = 3;
+
+//     printTranspose(arr, row, col);
+//     printArray(arr, row, col);
+//     return 0;
+// }
+// void printVector(vector<int> arr6) {
+//     int n = arr6.size();
+//     for(int i=0; i<n; i++) {
+//         cout<<arr6[i]<< " ";
+//     }
+// }
+// int main() {
+//     vector<int> arr6 = {1,2,3,4,5,6};
+//     printVector(arr6);
+
+//     return 0;
+// }
+
+//accessing 2D Vector
+// int main() {
+//     vector<vector<int>> arr2(5, vector<int> (10,0));
+//     int RowSize = arr2.size();
+//     int ColSize = arr2[0].size();
+
+//     for(int i=0; i<RowSize; i++) {
+//         for (int j=0; j<ColSize; j++) {
+//             cout << arr2[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+
+//     return 0;
+// }
+
+//Jagged arary ->
+
+// int main() {
+//     vector<vector<int>> arr;
+//     int n = arr.size();
+//     // int c = arr[i].size();
+
+//     vector<int> vec1(10,0);
+//     vector<int> vec2(5,1);
+//     vector<int> vec3(7,0);
+//     vector<int> vec4(8,1);
+//     vector<int> vec5(20,0);
+
+//     arr.push_back(vec1);
+//     arr.push_back(vec2);
+//     arr.push_back(vec3);
+//     arr.push_back(vec4);
+//     arr.push_back(vec5);
+
+//     for(int i=0; i<n; i++) {
+//         for(int j=0; j<arr[i].size(); j++) {
+//             cout << arr[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+
+//     return 0;
+// }
+
+//ab mereko -> sum of diagonal element in an array
+
+// void printRowWiseSum(int arr[][3], int row, int col) {
+//     int sum =0;
+//     for(int i=0; i<row; i++) {
+//         for(int j=0; j<col; j++) {
+//             if(i==j) {
+//                 sum = sum + arr[i][j];
+//             }
+//         }
+//         cout << sum;
+//     }
+// }
+
+// void printRowWiseSum(int arr[][3], int row, int col) {
+//     int sum =0;
+//     for(int i=0; i<row; i++) {
+//         for(int j=0; j<col; j++) {
+//             if((i+j)==(col-1)) {
+//                 sum = sum + arr[j][i];
+//             }
+//         }
+//         cout << sum;
+//     }
+// }
+// int main() {
+//     int arr[3][3] = {
+//         {1,2,3},
+//         {4,5,6},
+//         {7,8,9}
+//     };
+
+//     int row = 3;
+//     int col = 3;
+
+//     cout << "Coumn Wise Sum: "<<endl;;
+//     printColumWiseSum(arr, row, col);
+//     cout << "Row Wise Sum: "<<endl;;
+//     printRowWiseSum(arr, row, col);
+    
+//     return 0;
+// }
+
+//Diagonla elemeent ka sum chaiye mereko
+// Approach - 1. we will make two functions for Principla Diagonal and Secondary Diagonals
+//             2. Then will print sum 
+
+void printPrincipalDiagonal(int arr[][3], int row, int col) {
+    int sum = 0;
+    for (int i=0; i<row; i++) {
+        for (int j=0; j<col; j++) {
+            if(i==j) {
+                sum = sum + arr[i][j];
+            }
+        }
+    }
+    cout << sum << endl;
+}
+void printSecondaryDiagonal(int arr[][3], int row, int col) {
+    int sum = 0;
+    for (int i=0; i<row; i++) {
+        for (int j=0; j<col; j++) {
+            if(i+j==(col-1)) {
+                sum = sum + arr[j][i];
+            }
+        }
+    }
+    cout << sum << endl;
+}
+int main() {
+    int nums[3][3] = {
+        {1,2,3,},
+        {4,5,6,},
+        {7,8,9}
+    };
+
+    int row = 3;
+    int col = 3;
+
+    cout << "Printing sum of Principal Diagonal elements: "<<endl;
+    printPrincipalDiagonal(nums, row, col);
+
+    cout << "Printing sum of Secondary Diagonal elements: "<<endl;
+    printSecondaryDiagonal(nums, row, col);
+
+    return 0;
+}
