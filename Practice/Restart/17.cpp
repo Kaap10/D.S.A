@@ -622,7 +622,7 @@ using namespace std;
 using namespace std;
 
 // Function to rotate array
-void Rotate(int arr[], int d, int n)
+void Rotate(vector<int> &arr, int d, int n)
 {
 	// Storing rotated version of array
 	int temp[n];
@@ -653,7 +653,7 @@ void Rotate(int arr[], int d, int n)
 }
 
 // Function to print elements of array
-void PrintTheArray(int arr[], int n)
+void PrintTheArray(vector<int> arr, int n)
 {
 	for (int i = 0; i < n; i++) {
 		cout << arr[i] << " ";
@@ -663,7 +663,7 @@ void PrintTheArray(int arr[], int n)
 // Driver code
 int main()
 {
-	int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
+	vector<int> arr = { 1, 2, 3, 4, 5, 6, 7 };
 	int N = sizeof(arr) / sizeof(arr[0]);
 	int d = 2;
 
