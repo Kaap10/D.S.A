@@ -504,43 +504,172 @@ using namespace std;
 // Approach - 1. we will make two functions for Principla Diagonal and Secondary Diagonals
 //             2. Then will print sum 
 
-void printPrincipalDiagonal(int arr[][3], int row, int col) {
-    int sum = 0;
-    for (int i=0; i<row; i++) {
-        for (int j=0; j<col; j++) {
-            if(i==j) {
-                sum = sum + arr[i][j];
-            }
-        }
-    }
-    cout << sum << endl;
+// void printPrincipalDiagonal(int arr[][3], int row, int col) {
+//     int sum = 0;
+//     for (int i=0; i<row; i++) {
+//         for (int j=0; j<col; j++) {
+//             if(i==j) {
+//                 sum = sum + arr[i][j];
+//             }
+//         }
+//     }
+//     cout << sum << endl;
+// }
+// void printSecondaryDiagonal(int arr[][3], int row, int col) {
+//     int sum = 0;
+//     for (int i=0; i<row; i++) {
+//         for (int j=0; j<col; j++) {
+//             if(i+j==(col-1)) {
+//                 sum = sum + arr[j][i];
+//             }
+//         }
+//     }
+//     cout << sum << endl;
+// }
+// int main() {
+//     int nums[3][3] = {
+//         {1,2,3,},
+//         {4,5,6,},
+//         {7,8,9}
+//     };
+
+//     int row = 3;
+//     int col = 3;
+
+//     cout << "Printing sum of Principal Diagonal elements: "<<endl;
+//     printPrincipalDiagonal(nums, row, col);
+
+//     cout << "Printing sum of Secondary Diagonal elements: "<<endl;
+//     printSecondaryDiagonal(nums, row, col);
+
+//     return 0;
+// }
+
+//Print -ve number to left side of an aaray
+//1st method id Two Pointer approach
+// int printNegativeFirst(int arr[], int n) {
+//     int i=0;
+//     int j=0;
+//     while(i<n) {
+//         if(arr[i]>0) {
+//             i++;
+//         }
+//         else {
+//             swap(arr[i], arr[j]);
+//             i++;
+//             j++;
+//         }
+//     }
+// }
+
+// void printArray(int arr[], int n){
+//     for(int i=0; i<n; i++) {
+//         cout << arr[i] << " ";
+//     }
+// }
+// int main() {
+//     int arr[] = {1,-2, -3, 2, 5};
+//     int n = 5;
+
+//     printNegativeFirst(arr, n);
+//     printArray(arr, n);
+//     return 0;
+// }
+
+//Method 2 use krunga 
+// int printNegativeFirst(int arr[], int n) {
+//     int start = 0;
+//     int end = n-1;
+
+//     while(start<end) {
+//         if(arr[start]<0) {
+//             start++;
+//         }
+
+//         else if(arr[end]>0) {
+//             end--;
+//         }
+
+//         else if( arr[start]>0 && arr[end]<0) {
+//             swap(arr[start], arr[end]);
+//             start++;
+//             end++;
+//         }
+//     }
+// }
+
+// void printArray(int arr[], int n) {
+//     for(int i=0; i<n; i++) {
+//         cout << arr[i] << " ";
+//     }
+// }
+// int main() {
+//     int n;
+//     cout << "Enter the size of an array: ";
+//     cin >> n;
+//     int arr[100];
+//     cout << "Enter the elements of an array: ";
+//     for(int i=0; i<n; i++) {
+//         cin >> arr[i];
+//     }
+
+//     printNegativeFirst(arr, n);
+//     printArray(arr, n);
+//     return 0;
+// }
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to rotate array
+void Rotate(int arr[], int d, int n)
+{
+	// Storing rotated version of array
+	int temp[n];
+
+	// Keeping track of the current index
+	// of temp[]
+	int k = 0;
+
+	// Storing the n - d elements of
+	// array arr[] to the front of temp[]
+	for (int i = d; i < n; i++) {
+		temp[k] = arr[i];
+		k++;
+	}
+
+	// Storing the first d elements of array arr[]
+	// into temp
+	for (int i = 0; i < d; i++) {
+		temp[k] = arr[i];
+		k++;
+	}
+
+	// Copying the elements of temp[] in arr[]
+	// to get the final rotated array
+	for (int i = 0; i < n; i++) {
+		arr[i] = temp[i];
+	}
 }
-void printSecondaryDiagonal(int arr[][3], int row, int col) {
-    int sum = 0;
-    for (int i=0; i<row; i++) {
-        for (int j=0; j<col; j++) {
-            if(i+j==(col-1)) {
-                sum = sum + arr[j][i];
-            }
-        }
-    }
-    cout << sum << endl;
+
+// Function to print elements of array
+void PrintTheArray(int arr[], int n)
+{
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
+	}
 }
-int main() {
-    int nums[3][3] = {
-        {1,2,3,},
-        {4,5,6,},
-        {7,8,9}
-    };
 
-    int row = 3;
-    int col = 3;
+// Driver code
+int main()
+{
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
+	int N = sizeof(arr) / sizeof(arr[0]);
+	int d = 2;
 
-    cout << "Printing sum of Principal Diagonal elements: "<<endl;
-    printPrincipalDiagonal(nums, row, col);
+	// Function calling
+	Rotate(arr, d, N);
+	PrintTheArray(arr, N);
 
-    cout << "Printing sum of Secondary Diagonal elements: "<<endl;
-    printSecondaryDiagonal(nums, row, col);
-
-    return 0;
+	return 0;
 }
