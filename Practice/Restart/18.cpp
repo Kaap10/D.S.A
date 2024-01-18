@@ -3,19 +3,16 @@
 #include<vector>
 using namespace std;
 
-
-class Solution{
-    public: 
-
-    int sortColors(vector<int> &nums) {
+int sortColors(vector<int> &nums) {
+        // vector<int> nums = {0,1,0,1,2,2};
         int n = nums.size();
         int start = 0;
         int end = n-1;
         int index = 0;
 
-        while(index<end) {
+        while(index<=end) {
             if(nums[index]==0) {
-                swap(nums[start], nums[index]);
+                swap(nums[index], nums[start]);
                 start++;
                 index++;
             }
@@ -25,10 +22,16 @@ class Solution{
             }
 
             else if(nums[index==2]) {
-                swap(nums[end], nums[index]);
+                swap(nums[index], nums[end]);
                 end--;
                 //index ke sath kuch nhi krna, nhi toh lafda hojaega 
             }
         }
     }
-};
+
+int main() {
+        vector<int> nums = {0,1,2,1,2,1,0};
+        sortColors(nums);
+
+        return 0;
+    }
