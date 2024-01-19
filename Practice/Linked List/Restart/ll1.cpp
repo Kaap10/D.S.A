@@ -160,6 +160,15 @@ void insertAtPosition(Node* head, Node* tail, int data, int position) {
     }
 }
 
+void createTail(Node* &head, Node* &tail) {
+    Node* temp = head;
+
+    while(temp->next != NULL) {
+        temp = temp-> next;
+    }
+    tail = temp;
+}
+
 // int getLength(Node* head)
 // {
 //     Node* temp = head;
