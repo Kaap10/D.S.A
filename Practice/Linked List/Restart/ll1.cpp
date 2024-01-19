@@ -182,16 +182,70 @@ void createTail(Node* &head, Node* &tail) {
 //     return count;
 // }
 
+void deletefromHead(Node* &head, Node* &tail) {
+    //corner cases ko dekhenge -> Empty & second
+    if(head == NULL) {
+        cout << "No Element present in LL!";
+        return;
+    }
+
+    if(head == tail) {
+        Node* temp = head;
+        delete temp;
+
+        head->next = NULL;
+        tail->next = NULL;
+    }
+
+    Node* temp = head;
+    head = temp->next;
+    temp->next = NULL;
+    delete temp;
+}
+
+void deletefromTail(Node* &head, Node* &tail) {
+    //corner cases -> Empty & Single Element
+    if(head == NULL) {
+        cout << "Empty Linked List!";
+        return;
+    }
+
+    if(head == tail) {
+        Node* temp = head;
+        delete temp;
+
+        head -> next = NULL;
+        tail -> next = NULL;
+    }
+
+    Node* prev = head;
+    while(prev->next!= tail) {
+        prev = prev ->next;
+    }
+    prev -> next = NULL;
+    delete tail;
+    tail = prev;
+
+}
+
 int main()
 {
     Node* head = NULL;
     Node* tail = NULL;
+    cout<<"Inserting Element at Head: ";
     insertAtHead(head, tail, 10);
     printLL(head);
+    cout << "Inserting Element at Tail: ";
     insertAtTail(head, tail, 20);
     printLL(head);
-    insertAtPosition(head, tail, 505, 5);
+    // insertAtPosition(head, tail, 505, 5);
+    // printLL(head);
+    // cout << "Deleting Element from Head: ";
+    // deletefromHead(head, tail);
+    deletefromTail(head, tail);
+    cout << "Deleting Element from Tail: ";
     printLL(head);
+
     return 0;
 }
 
