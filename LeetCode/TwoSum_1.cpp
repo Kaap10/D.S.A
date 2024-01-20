@@ -14,7 +14,7 @@
 // };
 
 //[USING HASHING] ->
-
+// Two Sum (using HASHING)
 class Solution {
     public:
     vector<int> twoSum(vector<int> &nums, int target) {
