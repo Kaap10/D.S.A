@@ -104,4 +104,95 @@ void insertAtAnyPosition(Node* &head, Node* &tail, int data, int Position) {
         currNode ->prev = newNode;
     }
 }
+//delete a Node at head
+/* 1. we will make a node at head
+2. head = head->next;
+3. temp-> next = NULL
+4. head -> prev = NULL
+5. delete temp*/
 
+void deleteAtHead(Node* &head, Node* &tail) {
+    if(head == NULL) {
+        cout << "No Element! ";
+        return;
+    }
+
+    else if(head == tail) {
+        Node* temp = head;
+        delete temp;
+        head->next = NULL;
+        prev-> next = NULL;
+        return;
+    }
+
+    else {
+        Node* temp = head;
+        head = head->next;
+        temp->next = NULL;
+        head-> prev = NULL:
+        delete temp;
+    }
+}
+
+void deleteAtTail(Node* &head, Node* &tail) {
+    if(head == NULL) {
+        cout << "Sorry! ";
+        return;
+    }
+
+    if(head == tail) {
+        Node* temp = head;
+        delete temp;
+        head-> next = NULL;
+        tail-> next = NULL;
+        return;
+    }
+
+    else {
+        Node* prevNode = tail->prev;
+        prevNode -> next = NULL;
+        tail->prev = NULL;
+        delete tail;
+    }
+}
+
+deleteAtAnyPosition(Node* &head, Node* &tail, int position) {
+    if(head = NULL) {
+        cout << "sorry! ";
+        return;
+    }
+
+    if (head == tail) {
+        Node* temp = head
+        delete temp;
+        head -> next = NULL;
+        tail -> next = NULL:
+        return;
+    }
+
+
+    if(position=1) {
+        deleteAtHead(head, tail);
+    }
+
+    else if(position==findLength(head)) {
+        deleteAtTail(head, tail);
+    }
+
+    else {
+        Node* prevNode = NULL:
+        Node* currNode = head;
+        while(position!=1) {
+            prevNode = currNode;
+            currNode = currNode -> next;
+            position--;
+        }
+
+        Node* nextNode = currNode -> next;
+        prevNode -> next = newNode;
+        currNode -> prev = NULL;
+        currNode -> next = NULL;
+        nextNode -> prev = prevNode;
+        delete currNode;
+    }
+}
