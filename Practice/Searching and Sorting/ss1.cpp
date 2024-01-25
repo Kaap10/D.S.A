@@ -177,43 +177,89 @@ using namespace std;
 // }
 
 // FIND TOTAL OCCURENCE { lastOccurence - firstOccurence + 1}
-int firstOccurence(vector<int> arr, int target) {
+// int firstOccurence(vector<int> arr, int target) {
 
-}
+// }
 
-int lastOccurence(vector<int> arr, int target) {
-    int n = arr.size();
-    int start = 0;
-    int end = n-1;
+// int lastOccurence(vector<int> arr, int target) {
+//     int n = arr.size();
+//     int start = 0;
+//     int end = n-1;
 
-    while(start<=end) {
-        int mid = start + (end-start)/2;
+//     while(start<=end) {
+//         int mid = start + (end-start)/2;
 
-        if(arr[mid]==target) {
-            ans = mid;
-            start = mid +1;
+//         if(arr[mid]==target) {
+//             ans = mid;
+//             start = mid +1;
+//         }
+
+//         else if(arr[mid] > target) {
+//             end = mid-1;
+//         }
+
+//         else if(arr[mid] < target) {
+//             start = mid +1;
+//     }
+// }
+
+// int findTotalOccurence(vector<int> arr, int target) {
+//     int lastIndex = lastOccurence(arr, target);
+//     int firstIndex = firstOccurence(arr, target);
+//     int totalOccurence = lastIndex - firstIndex +1;
+//     return totalOccurence;
+// }
+// int main() {
+//     vector<int> arr{1,2,2,2,2,3,4};
+//     int target = 2;
+
+//     int finalAns = findTotalOccurence(arr, target);
+//     cout << finalAns;
+//     return 0;
+// }
+
+//FIND MISSING ELEMENT IN SORTED ARRAY (GFG)
+
+// int findMissingElement(int arr[], int size) {
+//     int n = arr.size();
+//     int start = 0;
+//     int end = size -1;
+//     int mid = start + (end-start)/2;
+//     int ans = -1;
+
+//     while(start<=end) {
+//         int difference = arr[mid] - mid;
+//         if(difference==1) {
+//             start = mid+1;
+//         }
+//         else if(difference==2) {
+//             ans = mid;
+//             end = mid-1;
+//         }
+//         mid = start + (end-start)/2;
+//     }
+//     return ans;
+// }
+
+//peak elements
+class Solution {
+    public:
+
+    int peakIndexInMountainArray(vector<int> &arr) {
+        int n = arr.size();
+        int start = 0;
+        int end = n-1;
+
+        while(start<=end) {
+            int mid = start + (end-start)/2;
+            if(arr[mid]<arr[mid-1]) {
+                end = mid;
+            }
+
+            else if(arr[mid]<arr[mid+1]) {
+                start = mid-1;
+            }
         }
-
-        else if(arr[mid] > target) {
-            end = mid-1;
-        }
-
-        else if(arr[mid] < target) {
-            start = mid +1;
+        return start;
     }
-}
-
-int findTotalOccurence(vector<int> arr, int target) {
-    int lastIndex = lastOccurence(arr, target);
-    int firstIndex = firstOccurence(arr, target);
-    int totalOccurence = lastIndex - firstIndex +1;
-    return totalOccurence;
-}
-int main() {
-    vector<int> arr{1,2,2,2,2,3,4};
-    int target = 2;
-
-    int finalAns = findTotalOccurence(arr, target);
-    cout << finalAns;
-    return 0;
 }
