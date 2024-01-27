@@ -1,3 +1,25 @@
 # D.S.A
 
 Hello Guys, this is my DSA Repo, where I will be solving LeetCode Questions & Practicing problems topic wise.
+
+DSA topics List ->
+- BASICS
+- LOOPS
+- PATTERNS
+- FUNCTIONS
+- ARRAYS
+- SEARCHING & SORTING
+- CHAR ARRAYS & STRINGS
+- BASIC MATHS & POINTERS
+- RECURSION
+- BACKTRACKING & DnC
+- OOPs
+- LINKED LIST
+- STACK
+- QUEUE
+- BINARY TREE
+- BINARY SEARCH TREE
+- HEAP
+- HASHMAP & TRIES
+- DYNAMIC PROGRAMMING
+- Graphs
