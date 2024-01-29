@@ -166,7 +166,6 @@ public class{
         if(leftAns == NULL && rightAns == NULL) return NULL;
         else if(leftAns == NULL && rightAns!=NULL) return rightAns;
         else if(leftAns != NULL && rightAns == NULL) return leftAns;
-
         else return root;
     }
 }
