@@ -169,3 +169,89 @@ public class{
         else return root;
     }
 }
+
+//BALANCED BINARY TREE
+class Solution{
+    public:
+    int height(Node* root) {
+        if(root==NULL) {
+            return 0;
+        }
+
+        //left or right ki height nikalenge
+        int leftH = height(root->left);
+        int rightH = height(root-> right);
+        int finalH = max(leftH, rightH) +1;
+        return finalH;
+    }
+
+    bool isBalanced(Node* root) {
+        if(root==NULL) {
+            return true;
+        }
+
+        int leftHeight = height(root->left);
+        int rightHeight = height(root-> right);
+        int diff = abs(leftHeight - rightHeight);
+        int currentNode = (diff<=1);
+
+        bool leftSubtree = isBalanced(root->left);
+        bool rightSubtree = isBalanced(root->right);
+        if(currentNode && leftSubtree && rightSubtree) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
+
+//Two sum
+class Soution{
+    public:
+    vector<int> twoSum(vector<int> &nums, int target) {
+        int n = nums.size();
+        for(int i=0; i<n-1; i++) {
+            for(int j=1; j<n; j++) {
+                if(nums[i]+nums[j]==target) {
+                    return {i,j};
+                }
+            }
+        }
+        return {};
+    }
+}
+
+//Method2 - using Hashing
+class Solution{
+    public:
+    vector<int> twoSum(vector<int> &nums, int target) {
+        map<int, int>mpp;
+        int n = nums.size();
+        for(int i=0; i<n; i++) {
+            int num = nums[i];
+            int neededNum = target - num;
+            if(mpp.find(neededNum) != mpp.end()) {
+                return {mpp[needed], i};
+            }
+            mpp[num] = i;
+        }
+        return {-1,-1};
+    }
+}
+
+//minimum number of pushes to type word I
+int minPushses(string word) {
+    int ans = 0;
+    int n = word.length();
+    int i=1;
+    int j=1;
+    while(i<=n) {
+        ans = ans +j;
+        if(i%8==0) {
+            j++;
+        }
+        i++;
+    }
+    return ans;
+}
