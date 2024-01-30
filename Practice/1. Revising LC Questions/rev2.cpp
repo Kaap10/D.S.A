@@ -233,3 +233,189 @@ vector<int> RowWithMaxOnes(vector<vector<int>> &mat) {
 
     return {maxRow, maxOnes};
 }
+
+// Reverse K Group (hard)
+
+class Solution{
+    public:
+
+    int getLength(Node* head) {
+        Node* temp = head;
+        int count = 0;
+
+        while(temp!=NULL) {
+            count++;
+            temp = temp ->next;
+        }
+        return count;
+    }
+
+    Node* reverseKGroup(Node* head, int k) {
+        int len = getLength(head);
+        if(k>len) {
+            return head;
+        }
+
+        Node* prev = NULL;
+        Node* curr = head;
+        Node* nextNode = curr -> next;
+
+        int position = 0;
+
+        while(position<k) {
+            nextNode = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = nextNode;
+            position++;
+        }
+
+        Node* recursionKaAns = NULL;
+        if(nextNode!=NULL) {
+            recursionKaAns = reverseKGroup(nextNode, k);
+            head -> next = recursionKaAns;
+        }
+        return prev;
+    }
+};
+
+//MINIMUM time to collect garbage
+int garbageCollection(vector<string> &garbage, vector<string> &travel) {
+    int pickM=0; int pickG=0; int pickP=0;
+    int travelM=0; int travelG=0; int travelP=0;
+    int lastM=0; int lastG=0; int lastP=0;
+
+    for(int i=0; i<garbage.size(); i++) {
+        string str = garbage[i];
+
+        for(auto ch:str) {
+            if(ch=='M') {
+                pickM++;
+                lastM = i;
+            }
+
+            if(ch=='P') {
+                pickP++;
+                lastP = i;
+            }
+
+            if(ch=='G') {
+                pickG++;
+                lastG = i;
+            }
+        }
+    }
+
+    for(int i=0; i<travelP; i++) {
+        travelP = travelP + travel[i];
+    }
+
+    for(int i=0; i<travelG; i++) {
+        travelG = travelG + travel[i];
+    }
+
+    for(int i=0; i<travelM; i++) {
+        travelM = travelM + travel[i];
+    }
+
+    int finalAns = (pickM + travelM) + (pickG + travelG) + (pickP + travelP);
+    return finalAns;
+}
+
+//Reaarange elements by sign
+//pehle mereko ko +ve number chaiye, -ve number chaiye
+
+class Soution{
+    public:
+    vector<int> reArrangeArray(vector<int> &nums) {
+        int size = nums.size();
+        vector<int> ans(size,0);
+
+        int posIndex = 0;
+        int negIndex = -1;
+
+        for(int index=0; index<size; index++) {
+            if(nums[index]>0) {
+                ans[posIndex] = nums[index];
+                posIndex = posIndex+2;
+            }
+
+            else if(nums[index]<0) {
+                ans[negIndex] = nums[index];
+                negIndex = negIndex +2;
+            }
+        }
+        return ans;
+    }
+}
+
+//COUNT primes
+//using sieve of eratosthenes
+
+class Solution{
+    public:
+    int countPrimes(int n) {
+        if(n==0) return;
+
+        vector<bool> prime(n, true);
+        prime[0] = prime[1] = false;    
+
+        int ans = 0;
+        for(int i=2; i<n; i++) {
+            if(prime[i]) {
+                ans++;
+
+                int j=2*i;
+                while(j<n) {
+                    prime[j] = false;
+                    j = j+1;
+                }
+            }
+        }
+        return ans;
+    }
+}
+
+//rotate array with k 
+class Solution {
+    public:
+    void rotate(vector<int> &nums, int k) {
+        int size = nums.size();
+
+        vector<int> ans(size, 0);
+        int index = 0;
+        while(index<size) {
+            int newIndex = (index+k) % size;
+            ans[newIndex] = nums[index];
+            index++;
+        }
+        nums = ans;
+    }
+};
+
+//2nd approach of this is that
+class Solution{
+    public:
+    void rotateArray(vector<int> &nums, int k) {
+        int size = nums.size();
+        k = k % size;
+
+        reverse(nums.begin(), nums.begin()+(n-k));
+        reverse(nums.begin()+(n-k), nums.end());
+        reverse(nums.begin(), nums.end());
+    }
+};
+
+//Majority element
+
+class Solution {
+    public:
+    int majorityElement(vector<int> &nums) {
+        sort(nums.begin(), nums.end());
+
+        int n = nums.size();
+        int k = n-1;
+        int midIndex = (0+k)/2;
+        return nums[midIndex];
+    }
+}
