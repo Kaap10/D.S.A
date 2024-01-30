@@ -149,3 +149,87 @@ int diameterOfbinaryTree(Node* root) {
     int diameter = max(option1, max(option2, option3));
     return diameter;
 }
+
+//Missing term 
+// approach -> missing term = total - sum
+int MissingTerm(vector<int> &nums) {
+    int n = nums.size();
+    int sum = 0;
+
+    for(int i=0; i<n; i++) {
+        sum = sum + nums[i];
+    }
+
+    int totalSum = (n*(n+1)) /2;
+    int missing_term = totalSum - sum;
+    return missing_term;
+}
+
+//using XOr
+int missingTerm(vector<int> &nums) {
+    int n = nums.size();
+    int xor_full = 0;
+    int xor_array = nums[0];
+
+    for(int i=1; i<n+1; i++) {
+        xor_full = xor_full ^ i;
+    }
+
+    for(int i=1; i<n; i++) {
+        xor_array = xor_array ^ nums[i];
+    }
+
+    return xor_full ^ xor_array;
+}
+
+//mereko row with maximum ones chaiye
+//it means that i have return row index with maximum ones and total number of ones too
+// target -> row index, total ones count
+
+vector<int> RowWithMaxOnes(vector<vector<int>> &mat) {
+    int n = nums.size();
+    int row = mat.size();
+    int col = col.size();
+
+    int oneCount = INT_MIN;
+    int rowNo = -1;
+
+    vector<int> ans;
+    for(int i=0; i<row; i++) {
+        int sum = 0;
+        for(int j=0; j<col; j++) {
+            if(mat[i][j]==1) {
+                sum++;
+            }
+        }
+
+
+        if(sum>oneCount) {
+            oneCount = sum;
+            rowNo = i;
+        }
+
+    }
+
+    ans.push_back(rowNo);
+    ans.push_back(oneCount);
+    return ans;
+}
+
+vector<int> RowWithMaxOnes(vector<vector<int>> &mat) {
+    int row = mat.size();
+    int col = mat[0].size();
+
+    int maxOnes = 0;
+    int maxRow = -1;
+
+    for(int i=0; i<row; i++) {
+        int ones = col - lower_bound(mat[i].begin(), mat[i].end(), 1);
+        if(ones > maxOnes) {
+            maxOnes = ones;
+            maxRow = i;
+        }
+    }
+
+    return {maxRow, maxOnes};
+}
