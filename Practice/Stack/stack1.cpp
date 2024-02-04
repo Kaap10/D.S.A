@@ -189,8 +189,49 @@ using namespace std;
 
 //  PROGRAM-4 [Reverse stack]
 // Appraoch -> 1. Reverse (insert at bottom) 2. insert at bottom (temp)
-void insertAtBottom(stack<int> &st, int &element) {
-    if(st.empty()) {
+// void insertAtBottom(stack<int> &st, int &element) {
+//     if(st.empty()) {
+//         st.push(element);
+//         return;
+//     }
+
+//     int temp = st.top();
+//     st.pop();
+
+//     insertAtBottom(st, element);
+//     st.push(temp);
+// }
+
+// void reverseStack(stack<int> &st) {
+//     if(st.empty()) {
+//         return;
+//     }
+
+//     int element = st.top();
+//     st.pop();
+
+//     reverseStack(st);
+//     insertAtBottom(st, element);
+// }
+
+// int main() {
+//     stack<int> st;
+//     st.push(10);
+//     st.push(20);
+//     st.push(30);
+
+//     reverseStack(st);
+//     while(!st.empty()) {
+//         cout << st.top() << endl;
+//         st.pop();
+//     }
+
+//     return 0;
+// }
+
+// PROGRAM-5 {insert in a sorted stack}
+void insertInSorted(stack<int> &st, int &element) {
+    if(st.empty() || element > st.top() ) {
         st.push(element);
         return;
     }
@@ -198,20 +239,8 @@ void insertAtBottom(stack<int> &st, int &element) {
     int temp = st.top();
     st.pop();
 
-    insertAtBottom(st, element);
+    insertInSorted(st, element);
     st.push(temp);
-}
-
-void reverseStack(stack<int> &st) {
-    if(st.empty()) {
-        return;
-    }
-
-    int element = st.top();
-    st.pop();
-
-    reverseStack(st);
-    insertAtBottom(st, element);
 }
 
 int main() {
@@ -220,9 +249,11 @@ int main() {
     st.push(20);
     st.push(30);
 
-    reverseStack(st);
+    int element = 25;
+    insertInSorted(st, element);
+
     while(!st.empty()) {
-        cout << st.top() << endl;
+        cout << st.top() << " ";
         st.pop();
     }
 
