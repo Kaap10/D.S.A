@@ -208,3 +208,48 @@ class Solution{
 }
 
 //Find pivot element index from sorted and rotated array
+
+int findPivotIndex(vector<int> nums) {
+    int n = nums.size();
+    int start = 0;
+    int end = n-1;
+    int mid = start + (end-start)/2;
+
+    while(start<=end) {
+        if(start==end) {
+            return start;
+        } 
+
+        else if(mid+1<n && nums[mid]>nums[mid+1]) {
+            return mid;
+        }
+
+        else if(mid-1>0 && nums[mid] < nums[mid-1]) {
+            return mid-1;
+        }
+
+        else if(nums[start] > nums[mid]) {
+            end = mid-1;
+        }
+        else {
+            start = mid+1;
+        }
+
+        mid = start + (end-start)/2;
+    }
+}
+
+//Search in Sorted and Rotated Array
+int search(vector<int> &nums, int target) {
+    int pivotIndex = findPivotIndex(nums);
+    int n = nums.size();
+    int ans = -1;
+
+    if(nums[0]<=target && target<=nums[pivotIndex]) {
+        ans = binarySearch(nums, 0, pivotIndex, target);
+    }
+    else {
+        ans = binarySearch(nums, pivotIndex+1, n-1, target);
+    }
+    return ans;
+}
