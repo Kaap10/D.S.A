@@ -184,3 +184,32 @@
 
 //LEVEL WISE TRAVERSAL LEVEL WISE (not in a line)
 
+void traversalLevelwise(Node* root) {
+    queue<Node*> q;
+
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()) {
+        Node* frontNode = q.front();
+        q.pop();
+
+        if(frontNode==NULL) {
+            cout << endl;
+            if(!q.empty()) {
+                q.push(NULL);
+            }
+        }
+
+        else{
+            cout << frontNode->data << endl;
+            if(frontNode->left!=NULL) {
+                q.push(frontNode->left);
+            }
+
+            if(frontNOde->right!=NULL) {
+                q.push(frontNode->right);
+            }
+        }
+    }
+}
