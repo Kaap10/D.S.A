@@ -5,13 +5,13 @@ public:
         queue<TreeNode*> que;
         
         que.push(root);
-        bool even_level = true;
+        bool evenLevel = true;
         
         while(!que.empty()) {
             
             int n = que.size();
             int prev;
-            if(even_level)
+            if(evenLevel)
                 prev = INT_MIN;
             else
                 prev = INT_MAX;
@@ -21,10 +21,10 @@ public:
                 TreeNode* node = que.front();
                 que.pop();
                 
-                if (even_level && (node->val % 2 == 0 || node->val <= prev)) {
+                if (evenLevel && (node->val % 2 == 0 || node->val <= prev)) {
                     return false;
                 }
-                if (!even_level && (node->val % 2 == 1 || node->val >= prev)) {
+                if (!evenLevel && (node->val % 2 == 1 || node->val >= prev)) {
                     return false;
                 }
                 
@@ -36,7 +36,7 @@ public:
                     que.push(node->right);
                 }  
             }
-            even_level = !even_level;    
+            evenLevel = !evenLevel;    
         } 
         return true;
     }
