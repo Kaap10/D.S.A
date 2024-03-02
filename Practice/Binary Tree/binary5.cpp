@@ -91,3 +91,76 @@ int main() {
 
     return 0;
 }
+
+//print top view of Binary Tree
+void printTopView(Node* root) {
+    map<int, int> hdToNodeMap;
+    queue<pair<Node*, int>> q;
+
+    q.push(make_pair(root, 0));
+    while(!q.empty()) {
+        pair<Node*, int> front = q.front();
+        q.pop();
+
+        Node* frontNode = front.first();
+        int level = front.second();
+
+        if(hdToNodeMap.find(level) == hdToNodeMap.end()){
+            hdToNodeMap[level]=frontNode->data;
+        }
+
+        if(frontNode->left != NULL) {
+            q.push(make_pair(frontNode->left, level-1));
+        }
+
+        if(frontNode->right != NULL) {
+            q.push(make_pair(frontNode->right, level+1));
+        }
+    }
+
+    cout << "Printing Top view: " << endl;
+    for(auto: hdToNodeMap) {
+        cout << data.second << " ";
+    }
+
+}
+
+//print left boundary
+void printLeftBoundary(Node* root) {
+    if(root==NULL) {
+        return;
+    }
+
+    if(root->left == NULL && root->right == NULL) {
+        return;
+    }
+
+    cout << root->data << " ";
+    if(root->left != NULL) {
+        printLeftBoundary(root->left);
+    }
+
+    if(root->right != NULL) {
+        printLeftBoundary(root->right);
+}
+
+void printLeafBoundary(Node* root) {
+    if(root==NULL) {
+        return;
+    }
+
+    if(root->right==NULL && root->left==NULL) {
+        return;
+    }
+
+    if(root->right!=NULL) {
+        printLeafBoundary(root->right);
+    }
+
+    else if(root->left!=NULL) {
+        printLeafBoundary(root->left);
+    }
+
+    cout << root->data << " ";
+}
+
