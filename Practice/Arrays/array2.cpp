@@ -1,14 +1,10 @@
 #include<iostream>
 using namespace std;
-//Linear search in an array {1 by 1 check krega element
+''
+void linearSearch(int arr[], int size, int target) {
+    bool flag = true;
 
-int main() {
-    int arr[] = {2,3,6,8,10,12};
-    int n = 6;
-    int target = 10;
-
-    bool flag = false;
-    for(int i=0; i<n; i++) {
+    for(int i=0; i<size; i++) {
         if(target == arr[i]) {
             flag = true;
             break;
@@ -18,69 +14,285 @@ int main() {
     if(flag==true) {
         cout << "Element found: ";
     }
-
     else {
         cout << "Element not found: ";
     }
-
-    return 0;
 }
 
-//Count 0 and 1 in an array
-
-void countZeroOne(int arr[], int size) {
-    int OneCount = 0;
-    int ZeroCount = 0;
-
-    for(int i=0; i<size; i++) {
-        if(arr[i]==0) {
-            ZeroCount++;
-        }
-
-        else {
-            OneCount++;
-        }
-    }
-
-    cout << "Zero Count: " << ZeroCount;
-    cout << "One Count: " << OneCount;
-}
 int main() {
-    int arr[100];
     int size;
-
     cout << "Enter the size: ";
     cin >> size;
 
-    cout << "Enter element: ";
+    cout << "Enter array elements: ";
     for(int i=0; i<size; i++) {
         cin >> arr[i];
     }
 
-    countZeroOne(arr, size);
+    cout << "Enter target element: ";
+    cin >> target;
+
+    linearSearch(arr, size, target);
     return 0;
 }
 
-//MAXIMUM AND MINIMUM ELEMENT IN AN ARRAY
-void MaximumElement(int arr[], int size) {
-    int maxVal = INT_MIN;
+//Program: Count 0's & 1's in ar array
+
+void countZero_One(int arr[], int size) {
+    int totalZeroCount = 0;
+    int totalOneCount = 0;
 
     for(int i=0; i<size; i++) {
-        if(maxVal < arr[i]) {
-            maxVal = arr[i];
+        if(arr[i]==0) {
+            totalZeroCount++;
+        }
+        else {
+            totalOneCount++;
         }
     }
 
-    cout << "Maxval is: "<< maxVal;
+    cout << "Enter the total count of zero: "<< totalZeroCount;
+    cout << "Enter the total count of One: "<< totalOneCount;
+}
+int main() {
+    int size;
+    cout << "Enter the size: ";
+    cin >> size;
+
+    cout << "Enter the array elements: ";
+    for(int i=0; i<size; i++) {
+        cin >> arr[i];
+    }
+
+    countZero_One(array, size);
+    return 0;
+}
+
+//find the maximum and minimum element in an array
+
+void MaximumElement(int arr[], int size) {
+    int MaxVal = INT_MIN;
+    for(int i=0; i<size; i++) {
+        if(MaxVal < arr[i]) {
+            MaxVal = arr[i];
+        }
+    }
+    cout << "Maximum Element: "<<MaxVal;
+
 }
 
 void MinimumElement(int arr[], int size) {
-    int minVal = INT_MAX;
-
+    int MinVal = INT_MAX;
     for(int i=0; i<size; i++) {
-        if (minVal > arr[i]) {
-            minVal = arr[i];
+        if(MinVal > arr[i]) {
+            MinVal = arr[i];
         }
     }
-    cout << "Minval is: "<<minVal;
+    cout << "Minimum Element: "<<MinVal;
+}
+
+int main() {
+    int size;
+    count << "Enter the size: ";
+    cin >> size;
+
+    int arr[100];
+    cout << "Enter the size of an array: ";
+    for(int i=0; i<size; i++) {
+        cin >> arr[i];
+    }
+
+    MaximumElement(arr, size);
+    MinimumElement(arr, size);
+    return 0;
+
+}
+
+//Reverse an array (using two pointers approach)
+void reverseArray(int arr[], int size) {
+    int start = 0;
+    int end = size-1;
+
+    while(start<=end) {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+}
+
+void printArray(int arr[], int size) {
+    for(int i=0; i<size; i++) {
+        cout << arr[i] << " ";
+    }
+}
+
+int main() {
+    int arr[100];
+    int size;
+
+    cout << "Enter size: ";
+    cin >> size;
+
+    cout << "Enter the elements of an array: ";
+    for(int i=0; i<size; i++) {
+        cin >> arr[i];
+    }
+
+    reverseArray(arr, size);
+    printArray(arr, size);
+    return 0;
+}
+
+//extreme print of an array (two pointers approach) 
+printExtremeArray(int arr[], int size) {
+    int start=0;
+    int end = size-1;
+
+    while(start<=end) {
+        if(start==end) {
+            cout << arr[start] << " ";
+        }
+
+        else {
+            cout << arr[start] << " ";
+            cout << arr[end] << " ";
+        }
+
+        start++;
+        end--;
+    }
+}
+int main() {
+    int arr[100];
+    cout << "Enter the size: ";
+    cin >> size;
+    cout << "Enter the elements:";
+    for(int i=0; i<size; i++) {
+        cin >> arr[i];
+    }
+
+    printExtremeArray(arr, size);
+    return 0;
+}
+
+//Shift array elements (right -> left)
+
+void shiftArray(int arr[], int size) {
+    int temp = arr[size-1];
+    for(int i=size-1; i>=1; i--) {
+        arr[i] = arr[i-1];
+    }
+
+    arr[0] = temp;
+}
+
+printArray(int arr[], int size) {
+    for(int i=0; i<size; i++) {
+        cout << arr[i] << " ";
+    }
+}
+int main() {
+    int arr[100];
+    int size;
+    cout << "Enter the size: ";
+    cin >> size;
+    cout << "Enter the elements of an array: ";
+    for(int i=0; i<size; i++) {
+        cin >> arr[i];
+    }
+
+    shiftArray(arr, size);
+    printArray(arr, size);
+    return 0;
+}
+
+void shiftLeftArray(int arr[], int size) {
+    int temp = arr[0];
+
+    for(int i=0; i<size-1; i++) {
+        arr[i] = arr[i+1];
+    }
+
+    arr[size-1] = temp;
+}
+
+//find unique element
+
+void printUniqueElement(int arr[], int size) {
+    int ans = 0;
+    for(int i=0; i<size; i++) {
+        ans = ans^arr[i];
+    }
+    return ans;
+}
+int main() {
+    int size;
+    cout << "Enter size: ";
+    cin >> size;
+
+    int arr[100];
+    cout << "Enter the array elements: ";
+    for(int i=0; i<size; i++) {
+        cin >> arr[i];
+    }
+
+    printUniqueElement(arr, size);
+    return 0;
+}
+
+//print all pairs 
+void printAllPairs(int arr[], int size) {
+    for(int i=0; i<size; i++) {
+        for(int j=0; i<size; j++) {
+            cout << arr[i] << ", " << arr[j]<< endl;
+        }
+    }
+}
+int main() {
+    int size;
+    int target;
+
+    printAllPairs(arr, size);
+    return 0;
+}
+
+//sort 1s and 0s in an array
+void SortZeroOne(int arr[], int size) {
+    int start=0;
+    int end=size-1;
+
+    while(s<e) {
+        while(arr[start]==0) {
+            start++;
+        }
+
+        while(arr[end]==1) {
+            end--;
+        }
+
+        while(arr[start]==1 && arr[end]==0) {
+            swap(arr[start], arr[end]);
+            start++;
+            end--;
+        }
+    }
+}
+int i=0;
+for(int i=0; i<zeroCount; i++) {
+    arr[i]=0;
+}
+
+for(int i=zeroCount; i<size;i++) {
+    arr[i]=0;
+}
+
+int i=0;
+while( zeroCount--) {
+    arr[i]==0;
+    i++:
+}
+
+while(oneCount--) {
+    arr[i]==1;
+    i++;
 }

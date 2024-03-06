@@ -5,7 +5,9 @@
         "string": "cpp",
         "vector": "cpp",
         "array": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
     },
     "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
     "C_Cpp.errorSquiggles": "disabled"
