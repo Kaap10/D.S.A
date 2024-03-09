@@ -325,3 +325,109 @@ int main() {
     printColWise(arr, row, col);
     return 0;
 }
+
+//Longest common prefix
+class Solution{
+public:
+    string longestCommonPrefix(vector<string> &strs) {
+        //mereko longest common prefix 
+        //agar koi prefix na mile toh return ""
+
+        string ans = "";
+        int n = strs.size();
+        sort(strs.begin(), strs.end());
+
+        int first = strs[0];
+        int second = strs[n-1];
+
+        for(int i=0; i<min(first.size(), second.size()); i++) {
+            if(first[i]==second[i]) {
+                return ans;
+            }
+
+            ans = ans + first[i];
+        }
+        return ans;
+    }
+}
+
+//running sum of 1D array
+class Solution{
+public:
+    vector<int> runningSum(vector<int> &nums) {
+        int n = nums.size();
+        for(int i=1; i<n; i++) {
+            nums[i] = nums[i-1] + nums[i];
+        }
+        return nums;
+    }
+}
+
+//remove nth node from end of list 
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        for(int i=1; i<n; i++) {
+            fast = fast -> next;
+        }
+
+        if(fast == NULL) {
+            return head->next;
+        }
+
+        while(fast && fast->next) {
+            slow = slow -> next;
+            fast = fast -> next;
+        }
+
+        ListNode* temp = slow -> next;
+        slow -> next = slow -> next -> next;
+        delete(temp);
+        return head;
+    }
+};
+
+//rerarrange element by sign
+class Solution{
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(size, 0);
+
+        int PosIndex = 0;
+        int NegIndex = 1;
+
+        for(int index=0; index<size; index++) {
+            if(nums[index]>0) {
+                ans[PosIndex] = nums[index];
+                PosIndex = PosIndex + 2;
+            }
+
+            else if (nums[index]<0) {
+                ans[NegIndex] = nums[index];
+                NegIndex = NegIndex + 2;
+            }
+        }
+        return ans;
+    }
+}
+
+//missing number
+class Solution {
+public:
+    int missingTerm(vector<int> &nums) {
+        int n= nums.size();
+        int sum = 0;
+
+        for(int i=0; i<n; i++) {
+            sum = sum + nums[i];
+        }
+
+        int totalSum = (n*(n+1)/2);
+        int missingTerm = totalSum - sum;
+        return missingTerm;
+    }
+}
