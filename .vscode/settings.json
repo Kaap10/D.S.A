@@ -7,7 +7,9 @@
         "array": "cpp",
         "regex": "cpp",
         "initializer_list": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
     },
     "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
     "C_Cpp.errorSquiggles": "disabled"
