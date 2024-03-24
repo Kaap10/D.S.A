@@ -9,7 +9,8 @@
         "initializer_list": "cpp",
         "utility": "cpp",
         "random": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "ostream": "cpp"
     },
     "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
     "C_Cpp.errorSquiggles": "disabled"
