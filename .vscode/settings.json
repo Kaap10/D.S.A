@@ -12,6 +12,6 @@
         "limits": "cpp",
         "ostream": "cpp"
     },
-    "cloudcode.duetAI.inlineSuggestions.enableAuto": true,
+    "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
     "C_Cpp.errorSquiggles": "disabled"
 }
