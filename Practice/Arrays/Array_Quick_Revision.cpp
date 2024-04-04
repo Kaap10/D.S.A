@@ -387,3 +387,70 @@ int main() {
     findMin(arr, row, col);
     return 0;
 }
+
+//pritn diagonla sum
+
+void RowWise(int arr[][3], int row, int col) {
+    for(int i=0; i<row; i++) {
+        int sum = 0;
+        for(int j=0; j<col; j++) {
+            sum = sum + arr[i][j];
+        }
+        cout << sum << endl;
+    }
+}
+
+void ColWise(int arr[][3], int row, int col) {
+    for(int i=0; i<col; i++) {
+        int sum = 0;
+        for(int j=0; j<row; j++) {
+            sum = sum + arr[i][j];
+        }
+        cout << sum << endl;
+    }
+}
+
+//print diagonal sum
+
+void diagonalSum(int arr[], int row, int col) {
+    int sum =0;
+    for(int i=0; i<row; i++) {
+        for(int j=0; j<col; j++) {
+            if(i==j) {
+                sum = sum + arr[i][j];
+            }
+        }
+    }
+
+    cout << sum << endl;
+}
+
+void secondaryDiagonalSum(int arr[], int row, int col) {
+    int sum=0;
+
+    for(int i=0; i<row; i++ ) {
+        for(int j=0; j<col; j++) {
+            if(i+j==(col-1)) {
+                sum = sum + arr[i][j];
+            }
+        }
+        cout << sum;
+    }
+}
+
+//Transpose of a matrix
+for(int i=0; i<row; i++) {
+    for( int j=0; j<col; j++) {
+        swap(arr[i][j], arr[j][i]);
+    }
+}
+
+//BASICS OF STL
+vector<int> arr;
+int n = arr.size(); //size
+arr.push_back(1); // inserting an element
+arr.pop_back(1); //deleting an element
+vector<int> arr(size, data); //use to intialize the data 
+vector<vector<int>> arr; // 2D array
+
+
