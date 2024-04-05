@@ -453,4 +453,152 @@ arr.pop_back(1); //deleting an element
 vector<int> arr(size, data); //use to intialize the data 
 vector<vector<int>> arr; // 2D array
 
+//Moving all negative numbers to the left side of an array
+void ShiftNegLeft(int arr[], int n) {
+    int i =0;
+    int j=0;
 
+    while(i<n) {
+        if(arr[i]>0) {
+            i++;
+        }
+        else {
+            swap(arr[i], arr[j]);
+            i++;
+            j++;
+        }
+    }
+}
+
+// Sort colors
+
+void sortColors(int arr[], int n) {
+    int start = 0; //0
+    int index = 0; // checking every element
+    int end  = n.size()-1;
+
+    while(index<=end) {
+        if(arr[index]==0) {
+            swap(arr[index], arr[start]);
+            index++;
+            start++;
+        }
+
+        else if(arr[index]==1) {
+            index++;
+        }
+
+        else {
+            swap(arr[index], arr[end]);
+            end--;
+        }
+    }
+}
+
+//rotate array by n 
+
+void rotateArray(vector<int> &nums, int k) {
+    int n = nums.size();
+    vector<int> ans(n);
+
+    int index = 0;
+    while(index<n) {
+        int newIndex = (index+k)%n;
+        ans[newIndex] = arr[index];
+        index++;
+    }
+    num = ans;
+}
+
+// missing number 
+
+void MissingNumber(int arr[], int n) {
+    int n = arr.size();
+    int sum =0;
+    for(int i=0; i<n; i++){
+        sum = sum + arr[i];
+    }
+
+    int totalSum = n*(n+1)/2;
+    int missingNumber = totalSum - sum;
+
+    return missingNumber;
+}
+
+//Row with Maximum ones
+vector<int> rowMaximumOnes(vector<vector<int>>&mat) {
+    int row = mat.size();
+    int col = mat[0].size();
+
+    int rowNo = -1;
+    int oneCount = INT_MIN;
+
+    for(int i=0; i<row; i++) {
+        int count = 0;
+        for(int j=0; j<col; j++) {
+            if(mat[row][col]==1) {
+                count++;
+            }
+        }
+
+        if(count > oneCount) {
+            oneCount = count;
+            rowNo = i;
+        }
+    }
+
+    ans.push_back(rowNo);
+    ans.push_back(oneCount);
+    return ans;
+}
+
+//rotate image by 90deg
+void rotateImage(vector<vector<int>>& mat) {
+    int row = mat.size();
+    int col = mat[0].size();
+
+    //transpose
+    for(int i=0; i<row; i++) {
+        for(int j=i; j<col; j++) {
+            swap(mat[i][j], mat[j][i]);
+        }
+    }
+
+    for(int i=0; i<row; i++) {
+        reverse(mat[i].begin(), mat[i].end());
+    }
+}
+
+//without using reverse function
+
+class Solution{
+
+    void reverseVector(vector<int>& arr) {
+        int size = arr.size();
+        int start = 0;
+        int end = size-1;
+
+        while(start<=end) {
+            swap(arr[start], arr[end]);
+            start++;
+            end--;
+        }
+    }
+    void rotateImage(vector<vector<int>> &mat) {
+        int row = mat.size();
+        int n = mat.size();
+
+        int col = mat[0].size();
+
+        //transpose 
+        for(int i=0; i<row; i++) {
+            for(int j=i`; j<col; j++) {
+                swap(mat[i][j], mat[j][i])
+            }
+        }
+
+        for(int i=0; i<n; i++) {
+            reverseVector(mat[i]);
+        }
+    }
+};
