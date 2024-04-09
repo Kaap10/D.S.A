@@ -602,3 +602,46 @@ class Solution{
         }
     }
 };
+
+//rearragenge elemenets by sign
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        int n = nums.size();
+
+        int pos_index = 0;
+        int neg_index = 1;
+        vector<int> result(n,0);
+
+        for(int index=0; index<n; index++) {
+            if(nums[index]>0) {
+                result[pos_index] = nums[index];
+                pos_index = pos_index+2;
+            }
+
+            else {
+                result[neg_index] = nums[index];
+                neg_index = neg_index + 2;
+            }
+        }
+        return result;
+    }
+};
+
+//Dupliacte
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size();
+
+        int duplicate = -1;
+        sort(nums.begin(), nums.end());
+        for(int i=0; i<n; i++) {
+            if(nums[i]==nums[i+1]) {
+                duplicate = nums[i];
+                break;
+            }
+        }
+        return duplicate;
+    }
+};
