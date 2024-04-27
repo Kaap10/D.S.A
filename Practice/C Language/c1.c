@@ -74,6 +74,6 @@ int main() {
     UpperCase = (c=='A' || c=='E' ||c=='I' ||c=='O' ||c=='U');
 
     if(lowerCase || UpperCase) {
-        printf("%c" )
+        printf("%c"  )
     }
 }
