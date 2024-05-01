@@ -431,3 +431,19 @@ public:
         return missingTerm;
     }
 }
+
+
+int main() {
+    int firstNum, SecondNum;
+
+    cout << "Enter the first number: ";
+    cin >> firstNum;
+
+    cout << "Enter the second number: ";
+    cin >> SecondNum;
+
+    int sum;
+    sum = firstNum + SecondNum;
+    cout << "Sum is: "<<firstNum<<" and " <<SecondNum << " is: " << sum;
+    return 0;
+}
