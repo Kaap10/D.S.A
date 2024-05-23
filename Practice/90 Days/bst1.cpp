@@ -1,16 +1,26 @@
-//Binary Search
+Node* insertIntoBST(Node* root, int data) {
+    if(root==NULL) {
+        Node* root = new Node(data);
+        return root;
+    }
 
-int main() {
-    int arr[100];
-    int n = arr.size();
-    int start = 0;
-    int end = n-1;
+    if(data < root->val) {
+        root->left = insertIntoBST(root->left, data);
+    }
 
-    while(start<=end) {
-        int mid = start + (end-start)/2;
+    else {
+        root->right = insertIntoBST(root->right, data);
+    }
+    return root;
+}
 
-        if(mid > arr[i]) {
-            end = 
-        }
+void createBST(Node* &root) {
+    cout << "Enter the root value: ";
+    int data;
+    cin >> data;
+
+    while(data!=-1) {
+        root = insertIntoBST(root, data);
+        cin >> data;
     }
 }
