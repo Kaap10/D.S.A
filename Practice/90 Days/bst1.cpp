@@ -1,45 +1,56 @@
-// Node* insertIntoBST(Node* root, int data) {
-//     if(root==NULL) {
-//         Node* root = new Node(data);
-//         return root;
-//     }
-
-//     if(data < root->val) {
-//         root->left = insertIntoBST(root->left, data);
-//     }
-
-//     else {
-//         root->right = insertIntoBST(root->right, data);
-//     }
-//     return root;
-// }
-
-// void createBST(Node* &root) {
-//     cout << "Enter the root value: ";
-//     int data;
-//     cin >> data;
-
-//     while(data!=-1) {
-//         root = insertIntoBST(root, data);
-//         cin >> data;
-//     }
-// }
-
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int natural_num(int n, int x) {
+vector<int> arr = {4,5,7,1};
+sort(arr.begin(), arr.end());
+{1,4,5,7}
+int n = arr.size();
+int firstIndex = arr[0];
+int lastINdex = arr[n-1];
 
-    if(n==0) return 0;
-    if(n==1) return 1;
-	for(int i=1; i<=n; i++) {
-		if(i!=x) {
-			cout << i << " ";
-		}
+int nums[] = {4,5,7,1};
+
+
+
+vector<int> nums = {1,4,6,2}
+int n = nums.size();
+
+// int largestElement = nums[5];
+sort(nums.begin(), nums.end());
+int largestNo = nums[n-1];
+
+//optiaml soln
+int maxVal = INT_MIN;
+for(int i=0; i<n; i++) {
+	if(nums[i]>maxVal) {
+		maxVal = nums[i];
 	}
 }
-int main() {
-	int n, x;
-	cin >> n >> x;
-	natural_num(n,x);
+
+// 1-2, 2-3, 3-1, 4-1, 5-1
+map (key, value) {1,3,2,1,2,4,5}
+set 
+
+{1,2,3}
+{3,4,5}
+
+{1,2,3,4,5}
+
+//int main
+int arr1[] = {1,2,3};
+int arr2[] = {3,4,5};
+
+//main fucntion
+vector<int> Union; //this vector is array
+set<int> s;
+
+for(int i=0; i<n; i++) {
+	s.insert(arr1[i]);
 }
+
+for(int i=0; i<n; i++) {
+	s.insert(arr2[i]);
+}
+set -> 1,2,3,4,5
+int Union[] = { 1, 2, 3, 4,5 }
+
