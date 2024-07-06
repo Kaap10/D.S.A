@@ -10,7 +10,8 @@
         "utility": "cpp",
         "random": "cpp",
         "limits": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "functional": "cpp"
     },
     "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
     "C_Cpp.errorSquiggles": "disabled"
